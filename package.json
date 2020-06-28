@@ -9,9 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "*",
-    "mongoose": "^5.9.20"
+    "mongoose": "^5.9.20",
+    "pusher": "^3.0.1",
+    "pusher-js": "^6.0.3",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
