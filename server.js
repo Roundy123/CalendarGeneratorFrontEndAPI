@@ -29,14 +29,24 @@ const usageSchema = new Schema({
 const Usage = mongoose.model("Usage", usageSchema);
 
 app.listen(PORT, () => {
-  console.log("Server running on port 3000");
+  console.log(`Server running on port ${PORT}`);
 });
 
 app.get("/url", (req, res, next) => {
   res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
 });
 
-app.get("/updateapicalls", (req, res) => {
+app.get("/getapicalls", (req, res) => {
+  Usage.findById({ _id: "5ef7a43ac791fe03e8d05f0f" }, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.post("/updateapicalls", (req, res) => {
   Usage.findByIdAndUpdate(
     { _id: "5ef7a43ac791fe03e8d05f0f" },
     { $inc: { apiCalls: 1 } },
